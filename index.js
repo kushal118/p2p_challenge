@@ -183,7 +183,9 @@ const addEventListenerToRemoveButtons = () => {
 
 // CREATE CARDS
 const createCards = () => {
-  cleanCardContainer();
+  //cleanCardContainer();
+  printCards(characters);
+
 
   let filtered = [...characters];
 
@@ -203,9 +205,9 @@ const createCards = () => {
     character.name.toLowerCase().includes(search.value.toLowerCase())
   );
 
-  filtered.filter((character) => {
-    !chosenIds.includes(character.id);
-  });
+  //filtered.filter((character) => {
+    //!chosenIds.includes(character.id);
+  //});
 
   if (filtered.length === 0) {
     const textElement = document.createElement("p");
@@ -221,7 +223,7 @@ const createCards = () => {
   addEventListenerToChooseButtons();
   addEventListenerToRemoveButtons();
 };
-
+createCards()
 const chooseCharacter = (e) => {
   chosenIds.push(parseInt(e.target.id));
   createChosenCards(chosenIds);
